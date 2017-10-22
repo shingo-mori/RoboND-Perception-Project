@@ -251,20 +251,20 @@ def pr2_mover(object_list):
                 test_scene_num, arm_name, object_name, pick_pose, place_pose)
         dict_list.append(yaml_dict)
 
-    #    # Wait for 'pick_place_routine' service to come up
-    #    rospy.wait_for_service('pick_place_routine')
+        # Wait for 'pick_place_routine' service to come up
+        rospy.wait_for_service('pick_place_routine')
 
-    #    try:
-    #        pick_place_routine = rospy.ServiceProxy('pick_place_routine', PickPlace)
+        try:
+            pick_place_routine = rospy.ServiceProxy('pick_place_routine', PickPlace)
 
-    #        # Send service request
-    #        resp = pick_place_routine(
-    #            test_scene_num, object_name, arm_name, pick_pose, place_pose)
+            # Send service request
+            resp = pick_place_routine(
+                test_scene_num, object_name, arm_name, pick_pose, place_pose)
 
-    #        print ("Response: ",resp.success)
+            print ("Response: ",resp.success)
 
-    #    except rospy.ServiceException, e:
-    #        print "Service call failed: %s"%e
+        except rospy.ServiceException, e:
+            print "Service call failed: %s"%e
 
     # Output your request parameters into output yaml file
     send_to_yaml('output{}.yaml'.format(test_scene_num.data), dict_list)
@@ -294,8 +294,7 @@ if __name__ == '__main__':
             DetectedObjectsArray, queue_size=1)
 
     # Load Model From disk
-    model_file = 'model{}.sav'.format(scene_number_param)
-    model = pickle.load(open(model_file, 'rb'))
+    model = pickle.load(open('model.sav', 'rb'))
     clf = model['classifier']
     encoder = LabelEncoder()
     encoder.classes_ = model['classes']
