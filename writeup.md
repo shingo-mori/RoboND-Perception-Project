@@ -107,8 +107,7 @@ We use color and normal histograms of point cloud for the input features to the 
 Color (RGB) values captured from the sensor stick are converted to HSV values during feature collection. HSV representation of the color values has an advantage of being more robust to lighting conditions than RGB representation.
 Color histograms and normal histograms are normalized to the range [0, 256] and [-1, 1] respectively.
 
-In the next step, we train the SVM classifier with the collected features using the [code provided by Udacity](https://github.com/udacity/RoboND-Perception-Exercises/blob/master/Exercise-3/sensor_stick/scripts/train_svm.py). The [confusion matrix](/home/shingo/Pictures/Screenshot from 2017-10-23 09-46-48.png
-/home/shingo/Pictures/Screenshot from 2017-10-23 09-49-16.png) below shows the performance of the classifier on the training set:
+In the next step, we train the SVM classifier with the collected features using the [code provided by Udacity](https://github.com/udacity/RoboND-Perception-Exercises/blob/master/Exercise-3/sensor_stick/scripts/train_svm.py). The [confusion matrix](https://en.wikipedia.org/wiki/Confusion_matrix) below shows the performance of the classifier on the training set:
 
 <img src="./misc_img/ex3-confusion_matrix.png" width="400">
 
