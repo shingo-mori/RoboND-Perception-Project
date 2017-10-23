@@ -105,12 +105,14 @@ In the training environment, target objects are generated in random orientations
 
 We use color and normal histograms of point cloud for the input features to the classifier. 
 Color (RGB) values captured from the sensor stick are converted to HSV values during feature collection. HSV representation of the color values has an advantage of being more robust to lighting conditions than RGB representation.
-
 Color histograms and normal histograms are normalized to the range [0, 256] and [-1, 1] respectively.
 
-In the next step, we train the SVM classifier with the collected features using the [code provided by Udacity](https://github.com/udacity/RoboND-Perception-Exercises/blob/master/Exercise-3/sensor_stick/scripts/train_svm.py).
+In the next step, we train the SVM classifier with the collected features using the [code provided by Udacity](https://github.com/udacity/RoboND-Perception-Exercises/blob/master/Exercise-3/sensor_stick/scripts/train_svm.py). The [confusion matrix](/home/shingo/Pictures/Screenshot from 2017-10-23 09-46-48.png
+/home/shingo/Pictures/Screenshot from 2017-10-23 09-49-16.png) below shows the performance of the classifier on the training set:
 
-By applying the trained classifier to the test environment, we get a recognition result as shown in the image below. In general, the classifier recognizes objects correctly, but some objects are either miss-clustered or miss-classified:
+<img src="./misc_img/ex3-confusion_matrix.png" width="400">
+
+By applying the trained classifier to the test environment, we get a recognition result as shown in the image below. In general, the classifier recognizes objects correctly, but some objects are either miss-clustered or miss-classified.
 
 <img src="./misc_img/ex3-result.png" width="500">
 
@@ -139,7 +141,14 @@ Object recognition pipeline is implemented the same way as in previous exercises
 Implementions are in [project_template.py](https://github.com/shingo-uzuki/RoboND-Perception-Project/blob/master/pr2_robot/scripts/project_template.py) file. 
 
 #### Result
-Our perception pipeline recognized all objects correctly (100%) in all the setups (`test[1-3].world`). The result below shows the target objects specified in the pick list, output `.yaml` file, and a screenshot of the scenes in each setup:
+
+Here is a confusion matrix of the classifier applied to the training set:
+
+<img src="./misc_img/test-confusion_matrix.png" width="400">
+
+The classifier is able to recognize all objects with the precision of over 90%.
+
+In the test environment, our perception pipeline recognized all objects correctly (100%) in all the setups (`test[1-3].world`). The result below shows target objects specified in the pick list, output `.yaml` file, and a screenshot of the scenes in each setup:
 
 ##### `test1.world`
 
